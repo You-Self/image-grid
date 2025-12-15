@@ -70,8 +70,8 @@ export default function ImageGallery() {
             />
 
             <button
-              onClick={() => deleteImage(i)}
-              className="deleteImage">
+              className="deleteImage"
+              onClick={() => deleteImage(i)}>
               ✕
             </button>
           </div>

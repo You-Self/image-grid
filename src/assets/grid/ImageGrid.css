@@ -21,28 +21,25 @@
 
 .imageGroup{
   display: flex;
-  gap: 1;
+  gap: 20px;
   flex-direction: column;
 }
 .relativeGroup{
   position: relative; 
 }
 .insideImage{
-  width: fit-content;
-  height: fit-content;
   cursor: cell;
-  object-fit: cover;
+  object-fit: contain;
 }
 .deleteImage{
   position: relative;
-  bottom: 55px;
-  left: 15px;
+  bottom: 20px;
+  right: 60px;
   background: #000;
-  color: white;
+  color: #fff;
   border-radius: 10px;
   width: 7;
   height: 7;
-  display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
@@ -50,7 +47,7 @@
   transition: 0.6s;
 }
 .deleteImage:hover{
-  background: red;
+  background: #f00;
   opacity: 1;
 }
 
