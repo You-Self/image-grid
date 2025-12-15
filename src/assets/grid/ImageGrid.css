@@ -51,15 +51,14 @@
   opacity: 1;
 }
 
-.modalShow{
+.selectedImage{
   position: fixed;
-  align-items: center;
-  justify-content: center;
   background: #00000088;
   inset: 5px;
+  align-content: center;
 }
-.modalImg{
-  max-width: 90%;
-  max-height: 90%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+.openedImage{
+  max-width: 95%;
+  max-height: 95%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }

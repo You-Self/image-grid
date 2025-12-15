@@ -7,7 +7,7 @@ export default function ImageGallery() {
     return saved ? JSON.parse(saved) : [];
   });
 
-  const [modalImage, setModalImage] = useState(null);
+  const [previewImage, setPreviewImage] = useState(null);
 
   useEffect(() => {
     localStorage.setItem("gallery", JSON.stringify(images));
@@ -66,7 +66,7 @@ export default function ImageGallery() {
             <img
               src={src}
               className="insideImage"
-              onClick={() => setModalImage(src)}
+              onClick={() => setPreviewImage(src)}
             />
 
             <button
@@ -78,14 +78,14 @@ export default function ImageGallery() {
         ))}
       </div>
 
-      {modalImage && (
+      {previewImage && (
         <div
-          className="modalShow"
-          onClick={() => setModalImage(null)}
+          className="selectedImage"
+          onClick={() => setPreviewImage(null)}
         >
           <img
-            src={modalImage}
-            className="modalImg"
+            src={previewImage}
+            className="openedImage"
           />
         </div>
       )}
