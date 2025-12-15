@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./ImageGrid.css";
 
 export default function ImageGallery() {
   const [images, setImages] = useState(() => {
@@ -23,6 +24,10 @@ export default function ImageGallery() {
     });
   }
 
+  function deleteImage(index) {
+    setImages((prev) => prev.filter((_, i) => i !== index));
+  }
+
   useEffect(() => {
     function handlePaste(e) {
       const items = e.clipboardData.items;
@@ -42,41 +47,45 @@ export default function ImageGallery() {
   }, []);
 
   return (
-    <div className="p-4">
-      <h1 className="text-2xl mb-4">Image Gallery</h1>
+    <div className="mainPage">
+      <h1 className="pageName">Image Gallery</h1>
 
-      {/* Controls */}
-      <div className="mb-4 flex gap-3 items-center">
+      <div className="stringInsert">
         <input
           type="file"
           multiple
           accept="image/*"
           onChange={handleFileUpload}
         />
-        <span className="text-gray-600">Ctrl + V to insert an image</span>
+        <span className="pasteString">Ctrl + V to paste an image</span>
       </div>
 
-      {/* Grid */}
-      <div className="grid grid-cols-3 gap-2">
+      <div className="imageGroup">
         {images.map((src, i) => (
-          <img
-            key={i}
-            src={src}
-            className="w-full h-32 object-cover cursor-pointer rounded"
-            onClick={() => setModalImage(src)}
-          />
+          <div key={i} className="relativeGroup">
+            <img
+              src={src}
+              className="insideImage"
+              onClick={() => setModalImage(src)}
+            />
+
+            <button
+              onClick={() => deleteImage(i)}
+              className="deleteImage">
+              ✕
+            </button>
+          </div>
         ))}
       </div>
 
-      {/* Modal */}
       {modalImage && (
         <div
-          className="fixed inset-0 bg-black/70 flex items-center justify-center"
+          className="modalShow"
           onClick={() => setModalImage(null)}
         >
           <img
             src={modalImage}
-            className="max-w-[90%] max-h-[90%] rounded shadow-xl"
+            className="modalImg"
           />
         </div>
       )}
