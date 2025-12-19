@@ -12,13 +12,18 @@ export default function ImageGallery() {
     const saved = localStorage.getItem("gallery");
     return saved ? JSON.parse(saved) : [];
   });
-
-  const [previewImage, setPreviewImage] = useState(null);
-  const [viewMode, setViewMode] = useState("grid");
-
   useEffect(() => {
     localStorage.setItem("gallery", JSON.stringify(images));
   }, [images]);
+
+  const [viewMode, setViewMode] = useState(() => {
+    return localStorage.getItem("viewMode") || "grid";
+  });
+  useEffect(() => {
+    localStorage.setItem("viewMode", viewMode);
+  }, [viewMode]);
+
+  const [previewImage, setPreviewImage] = useState(null);
 
   function handleFileUpload(e) {
     const files = [...e.target.files];
