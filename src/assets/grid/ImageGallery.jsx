@@ -81,19 +81,21 @@ export default function ImageGallery() {
         <span className="pasteString">Ctrl + V to paste an image</span>
       </div>
 
-      {viewMode === "grid" ? (
-        <ImageGrid
-          images={images}
-          onSelect={setPreviewImage}
-          onDelete={deleteImage}
-        />
-      ) : (
-        <ImageRow
-          images={images}
-          onSelect={setPreviewImage}
-          onDelete={deleteImage}
-        />
-      )}
+      <div className={`viewContainer ${viewMode}`}>
+        {viewMode === "grid" ? (
+          <ImageGrid
+            images={images}
+            onSelect={setPreviewImage}
+            onDelete={deleteImage}
+          />
+        ) : (
+          <ImageRow
+            images={images}
+            onSelect={setPreviewImage}
+            onDelete={deleteImage}
+          />
+        )}
+      </div>
 
       {previewImage && (
         <div
