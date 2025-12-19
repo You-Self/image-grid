@@ -1,4 +1,4 @@
-import ImageGallery from './assets/grid/ImageGrid'
+import ImageGallery from './assets/grid/ImageGallery.jsx'
 import './App.css'
 
 function App() {

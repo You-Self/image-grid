@@ -1,11 +1,11 @@
-export default function ImageGrid({ images, onSelect, onDelete }) {
+export default function ImageRow({ images, onSelect, onDelete }) {
   return (
-    <div className="gridGroup">
+    <div className="rowGroup">
       {images.map((src, i) => (
-        <div key={i} className="gridItem">
+        <div key={i} className="rowItem">
           <img
             src={src}
-            className="gridImage"
+            className="rowImage"
             onClick={() => onSelect(src)}
           />
           <button

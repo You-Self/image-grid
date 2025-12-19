@@ -1,0 +1,14 @@
+.rowGroup {
+  display: grid;
+  grid-template-columns: repeat(4, 350px);
+  gap: 30px;
+}
+.rowItem {
+  position: relative;
+}
+.rowImage {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  cursor: cell;
+}
