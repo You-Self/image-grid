@@ -23,6 +23,8 @@ export default function ImageGallery() {
     localStorage.setItem("viewMode", viewMode);
   }, [viewMode]);
 
+  const [viewKey, setViewKey] = useState(0);
+
   const [previewImage, setPreviewImage] = useState(null);
 
   function handleFileUpload(e) {
@@ -63,9 +65,10 @@ export default function ImageGallery() {
       <h1 className="pageName">Image Gallery</h1>
 
       <button
-        onClick={() =>
-          setViewMode((prev) => (prev === "grid" ? "row" : "grid"))
-        }
+        onClick={() => {
+          setViewMode((prev) => (prev === "grid" ? "row" : "grid"));
+          setViewKey((k) => k + 1);
+        }}
         className="switchButton"
       >
         Switch to {viewMode === "grid" ? "Row" : "Grid"}
@@ -81,7 +84,10 @@ export default function ImageGallery() {
         <span className="pasteString">Ctrl + V to paste an image</span>
       </div>
 
-      <div className={`viewContainer ${viewMode}`}>
+      <div 
+        className={`viewContainer ${viewMode}`}
+        key={viewKey}  
+      >
         {viewMode === "grid" ? (
           <ImageGrid
             images={images}
