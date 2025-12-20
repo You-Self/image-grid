@@ -74,14 +74,14 @@ export default function ImageGallery() {
         Switch to {viewMode === "grid" ? "Row" : "Grid"}
       </button>
 
-      <div className="stringInsert">
+      <div className="inputStrings">
         <input
           type="file"
           multiple
           accept="image/*"
           onChange={handleFileUpload}
         />
-        <span className="pasteString">Ctrl + V to paste an image</span>
+        <span>Ctrl + V to paste an image</span>
       </div>
 
       <div 
